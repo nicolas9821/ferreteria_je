@@ -1,0 +1,421 @@
+﻿/* Universal Reset - CRÍTICO: Asegura que no haya márgenes/paddings predeterminados del navegador */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que el body ocupe toda la altura disponible */
+    width: 100%; /* Asegura que el body ocupe todo el ancho disponible */
+    font-family: 'Segoe UI', sans-serif; /* Mantiene la fuente general */
+    color: #111; /* Color de texto general */
+    background: #f8f8f8; /* Fondo general de la página */
+    overflow: hidden; /* ¡Importante! Evita scrollbars no deseados en el body que puedan causar espacio */
+}
+
+/* Estilos Generales del Dashboard */
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100%; /* El dashboard debe ocupar toda la altura del body */
+}
+
+/* Estilos del Sidebar - AJUSTES DEFINITIVOS PARA CONSISTENCIA ABSOLUTA */
+.sidebar {
+    width: 240px!important;
+    min-width: 240px;
+    background-color: #111; /* Color de fondo negro */
+    color: white;
+    padding: 0; /* ¡CERO PADDING! Asegura que no haya espacio alrededor del contenido del sidebar, pegándolo al borde izquierdo */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil a la derecha */
+    overflow-y: auto; /* Permite el scroll si hay muchos elementos de menú */
+    /* Ocultar la barra de desplazamiento visualmente */
+    -ms-overflow-style: none; /* Para IE y Edge */
+    scrollbar-width: none; /* Para Firefox */
+}
+
+    /* Ocultar scrollbar para Webkit (Chrome, Safari) */
+    .sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+.logo-ferreteria {
+    width: 150px; /* Ancho fijo para el logo */
+    height: auto; /* Mantiene la proporción */
+    padding: 20px 20px 10px 20px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: block;
+    
+}
+
+.sidebar nav ul {
+    list-style-type: none; /* Quita los puntos de la lista */
+    width: 100%;
+    padding: 0; /* Asegura que el ul no tenga padding por defecto */
+    margin: 0; /* Asegura que el ul no tenga márgenes por defecto */
+}
+
+    .sidebar nav ul li {
+        margin-bottom: 5px; /* Espacio vertical entre cada ítem del menú */
+    }
+
+        /* Asegura que el último ítem no tenga margen inferior extra */
+        .sidebar nav ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none; /* Quita el subrayado de los enlaces */
+            display: block; /* Hace que el fondo abarque todo el ancho del sidebar */
+            padding: 12px 20px; /* Relleno interno del enlace: vertical 12px, horizontal 20px para la sangría del texto */
+            border-radius: 0; /* Bordes rectos para coincidir con la imagen */
+            transition: background 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+            font-size: 1.1em; /* Ajusta el tamaño de la fuente para que se vea como en la imagen */
+        }
+
+            /* Estilo para el elemento de menú activo y al pasar el ratón (exactamente como en tu imagen) */
+            .sidebar nav ul li a:hover,
+            .sidebar nav ul li a.activo {
+                background-color: #1e3a5f; /* Azul oscuro distintivo */
+                color: #ffffff; /* Color de texto blanco */
+            }
+
+
+/* Estilos del Contenido Principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #fdfdfd;
+}
+
+/* Estilos de la Barra Superior (Topbar) */
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-menu {
+    position: relative;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Estilo para el botón de Administrador */
+.user-name {
+    cursor: pointer;
+    background: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .user-name:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
+    .user-name i {
+        margin-right: 8px;
+    }
+
+/* Estilos del Dropdown de Usuario */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    top: 50px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #333;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Animación para el dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown div {
+    padding: 5px 0;
+    line-height: 1.4;
+}
+
+.dropdown strong {
+    color: #555;
+}
+
+.dropdown a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+    .dropdown a:hover {
+        text-decoration: underline;
+    }
+
+/* Estilos para los KPI Cards (Key Performance Indicators) */
+.kpi-container {
+    display: flex;
+    flex-wrap: wrap; /* CAMBIO CLAVE: Permite que los elementos se envuelvan a la siguiente línea */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: flex-start; /* Centra las tarjetas en la fila */
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 30px;
+    /* Eliminadas propiedades de overflow-x */
+}
+
+.kpi-card {
+    width: calc(25% - 15px); /* AJUSTE CLAVE: Permite 4 cards por fila con un pequeño margen para el gap */
+    max-width: 200px; /* Opcional: Establece un ancho máximo para evitar que crezcan demasiado */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el width */
+}
+
+    .kpi-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .kpi-card h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1em;
+        color: #555;
+    }
+
+    .kpi-card p {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #007bff;
+        margin: 0;
+    }
+
+/* Estilos del Botón de Cerrar Sesión */
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+    .logout-btn i {
+        margin-right: 8px;
+    }
+
+    .logout-btn:hover {
+        background-color: #c82333;
+        transform: scale(1.05);
+    }
+
+    .logout-btn:focus {
+        outline: none;
+    }
+
+/* Media Queries para responsividad */
+@media (min-width: 1200px) {
+    .kpi-card {
+        width: calc(20% - 16px); /* 5 cards por fila si hay suficiente espacio */
+    }
+}
+
+@media (max-width: 1024px) {
+    .kpi-card {
+        width: calc(25% - 15px); /* 4 cards por fila en pantallas medianas */
+        min-width: 160px;
+        padding: 12px;
+        font-size: 0.9em;
+    }
+
+        .kpi-card h3 {
+            font-size: 0.9em;
+        }
+
+        .kpi-card p {
+            font-size: 1.6em;
+        }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .kpi-container {
+        justify-content: center; /* Centrar para 3 columnas */
+    }
+
+    .kpi-card {
+        width: calc(33.33% - 14px); /* 3 cards por fila */
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 15px 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+    }
+
+        .sidebar h2 {
+            display: none;
+        }
+
+        .sidebar .logo-ferreteria {
+            width: 60px;
+            height: 60px;
+            margin: 0;
+            display: none;
+        }
+
+        .sidebar nav {
+            width: 100%;
+        }
+
+            .sidebar nav ul {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+                .sidebar nav ul li {
+                    margin: 0;
+                }
+
+                    .sidebar nav ul li a {
+                        padding: 8px 10px;
+                        font-size: 0.9em;
+                        text-align: center;
+                    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .topbar {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .user-menu {
+        gap: 10px;
+    }
+
+    .dropdown {
+        width: 100%;
+        left: 0;
+        right: auto;
+        margin-top: 5px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .kpi-container {
+        flex-direction: row;
+        justify-content: center; /* Centrar para 2 columnas */
+        align-items: center;
+        gap: 15px;
+        overflow-x: hidden; /* Asegurar que no haya scroll horizontal */
+        padding: 10px;
+    }
+
+    .kpi-card {
+        width: calc(50% - 10px); /* 2 cards por fila */
+        min-width: 140px;
+        padding: 10px;
+    }
+
+        .kpi-card p {
+            font-size: 1.2em;
+        }
+}
+
+@media (max-width: 480px) {
+    .sidebar nav ul li a {
+        font-size: 0.85em;
+        padding: 6px 8px;
+    }
+
+    .user-name, .logout-btn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .kpi-card {
+        width: calc(100% - 20px); /* 1 card por fila en pantallas muy pequeñas */
+    }
+}

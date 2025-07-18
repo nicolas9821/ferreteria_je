@@ -1,0 +1,369 @@
+﻿/* Estilos del Footer (comunes a varias páginas) */
+.main-footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .main-footer p {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+    }
+
+.social-links-footer {
+    display: flex;
+    gap: 25px;
+}
+
+    .social-links-footer a {
+        color: white;
+        font-size: 2.2em;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-links-footer .social-icon-whatsapp {
+        color: #25d366;
+    }
+
+        .social-links-footer .social-icon-whatsapp:hover {
+            color: #128c7e;
+            transform: translateY(-3px) scale(1.1);
+        }
+
+    .social-links-footer .social-icon-instagram {
+        color: #c13584;
+    }
+
+        .social-links-footer .social-icon-instagram:hover {
+            color: #833ab4;
+            transform: translateY(-3px) scale(1.1);
+        }
+
+    .social-links-footer .social-icon-gmail {
+        color: #ea4335;
+    }
+
+        .social-links-footer .social-icon-gmail:hover {
+            color: #c5221f;
+            transform: translateY(-3px) scale(1.1);
+        }
+
+/* Estilos Generales (comunes a varias páginas) */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', 'Candara', sans-serif;
+    background-color: #0f0f0f;
+    color: white;
+    line-height: 1.6;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #1e88e5;
+        text-decoration: underline;
+    }
+
+nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 15px 30px;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+    .nav-links a {
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+    .auth-links a {
+        font-weight: bold;
+        padding: 8px 12px;
+        border: 1px solid white;
+        border-radius: 6px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .auth-links a:hover {
+            background-color: white;
+            color: #032b5f;
+        }
+
+.logo img {
+    height: 70px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.author-date {
+    background-color: #333;
+    padding: 15px 30px;
+    font-size: 14px;
+}
+
+main.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 30px;
+    background-color: #fff;
+    color: #000;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Estilos de Hero Section (comunes a varias páginas) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-image: url('../imagenes/Fondo3.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+}
+
+.hero-section p.subtitle {
+    font-size: 1.3em;
+    margin-top: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-weight: 300;
+}
+
+/* Media Queries para Hero Section (comunes) */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p.subtitle {
+        font-size: 1.1em;
+    }
+
+    .hero-section {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-section p.subtitle {
+        font-size: 0.9em;
+    }
+
+    .hero-section {
+        height: 200px;
+    }
+}
+
+/* Estilos Específicos para la página "¿Qué Buscas?" */
+.category-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+    .category-section h2 {
+        font-size: 28px;
+        color: #111;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.category-item {
+    flex: 1 1 280px;
+    background: #eee;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .category-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .category-item img {
+        width: 180px; /* Aumenta el tamaño de las imágenes */
+        height: 180px; /* Aumenta el tamaño de las imágenes */
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 2px solid #ddd;
+    }
+
+    .category-item h3 {
+        font-size: 22px;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .category-item p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+/* Estilos para la barra de búsqueda y el filtro */
+.search-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    max-width: 500px; /* Ancho máximo para la barra de búsqueda */
+    position: relative;
+}
+
+    .search-bar input[type="text"] {
+        width: 100%;
+        padding: 12px 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        padding-right: 40px; /* Espacio para el icono de búsqueda */
+    }
+
+    .search-bar .search-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #555;
+        font-size: 20px;
+    }
+
+.filter-sort-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .filter-sort-options select {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: white;
+        cursor: pointer;
+        -webkit-appearance: none; /* Oculta el estilo predeterminado de la flecha en Chrome/Safari */
+        -moz-appearance: none; /* Oculta el estilo predeterminado de la flecha en Firefox */
+        appearance: none; /* Oculta el estilo predeterminado de la flecha */
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%00-13-5.4H18.4c-6.1%200-11.6%203.5-13%205.4-1.4%201.9-1.4%204.6%200%206.5l135%20135c1.4%201.9%203.1%202.6%205%202.6s3.6-.7%205-2.6l135-135c1.4-1.9%201.4-4.7%200-6.5z%22%2F%3E%3C%2Fsvg%3E'); /* Flecha personalizada */
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 12px;
+    }
+
+        .filter-sort-options select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+@media (max-width: 600px) {
+    .search-filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-bar {
+        max-width: 100%;
+    }
+
+    .filter-sort-options {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+        .filter-sort-options select {
+            width: 48%; /* Dos select por fila en móviles */
+        }
+}

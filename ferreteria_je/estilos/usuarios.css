@@ -1,0 +1,82 @@
+﻿/* estilos/usuarios.css */
+
+/* --- General Table Styles (Overrides/Additions for DataTables) --- */
+.table-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+    overflow-x: auto; /* Ensures horizontal scroll on small screens */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .data-table th,
+    .data-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .data-table th {
+        background-color: #333; /* Dark header, consistent with products */
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+
+    .data-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9; /* Alternating row color */
+    }
+
+    .data-table tbody tr:hover {
+        background-color: #f1f1f1; /* Hover effect for rows */
+    }
+
+/* --- Action Buttons within Table --- */
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Remove underline from LinkButton */
+    color: #fff; /* Default text color for buttons */
+}
+
+    .action-btn i {
+        margin-right: 5px;
+    }
+
+.edit-btn {
+    background-color: #007bff; /* Blue for edit */
+}
+
+    .edit-btn:hover {
+        background-color: #0056b3;
+        transform: translateY(-1px);
+    }
+
+.delete-btn {
+    background-color: #dc3545; /* Red for delete */
+}
+
+    .delete-btn:hover {
+        background-color: #c82333;
+        transform: translateY(-1px);
+    }
+
+/* --- Pagination Styles for GridView --- */
+.data-table .pgr { /* Default class for GridView pager row */
+    background-color: #e2e2

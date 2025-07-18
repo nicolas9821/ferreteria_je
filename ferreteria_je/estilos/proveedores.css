@@ -1,0 +1,270 @@
+﻿/* Page Specific Styles for Proveedores */
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+    .header-section h1 {
+        font-size: 28px; /* Tamaño del título principal */
+        color: #222;
+        font-weight: bold;
+    }
+
+    .header-section .actions {
+        display: flex;
+        gap: 15px; /* Espacio entre los botones y el input de búsqueda */
+        align-items: center; /* Centra verticalmente los elementos */
+    }
+
+.btn {
+    padding: 10px 18px; /* Ajuste el padding para un mejor aspecto */
+    border: none;
+    border-radius: 4px; /* Bordes más cuadrados para los botones de acción */
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600; /* Texto más negrita para los botones */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.search-input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+    .search-input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Un suave brillo al enfocar */
+    }
+
+.table-container {
+    background: white;
+    padding: 30px; /* Más padding para la tabla */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .data-table th, .data-table td {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .data-table th {
+        background-color: #333; /* Fondo oscuro para los encabezados */
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600; /* Más negrita */
+        font-size: 14px;
+    }
+
+    .data-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .data-table .actions-cell .action-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px; /* Tamaño del ícono */
+        margin-right: 10px;
+        color: #007bff; /* Color azul para editar */
+        transition: color 0.3s ease;
+    }
+
+        .data-table .actions-cell .action-btn:hover {
+            color: #0056b3;
+        }
+
+        .data-table .actions-cell .action-btn.delete-btn {
+            color: #dc3545; /* Color rojo para eliminar */
+        }
+
+            .data-table .actions-cell .action-btn.delete-btn:hover {
+                color: #111;
+            }
+
+            /* Add this to your CSS file (e.g., proveedores.css) */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden; /* To keep the button inside the rounded border */
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    border: none;
+    padding: 8px 12px;
+    flex-grow: 1; /* Allows the input to take up available space */
+    outline: none; /* Removes the focus outline */
+}
+
+.search-button {
+    background-color: #007bff; /* A nice blue color */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+    .search-button i {
+        margin: 0; /* Remove any default margin from the icon */
+        font-size: 18px; /* Cambia el tamaño de la lupa */
+        color: #66e9a5; /* Color del ícono */
+    }
+/* Media Queries for Page Specifics (Proveedores) */
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column; /* Apila el título y las acciones */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+        .header-section .actions {
+            width: 100%;
+            flex-direction: column; /* Apila los botones y la búsqueda */
+            gap: 10px;
+        }
+
+    .search-input {
+        width: 100%; /* La barra de búsqueda ocupa todo el ancho */
+    }
+
+    .btn {
+        width: 100%; /* Los botones ocupan todo el ancho */
+        justify-content: center; /* Centra el texto del botón */
+    }
+
+    .table-container {
+        padding: 15px;
+    }
+
+    .data-table th, .data-table td {
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+.data-table .actions-cell .action-btn {
+    background: none;
+    border: none; 
+    cursor: pointer;
+    font-size: 18px; /* Tamaño del ícono */
+    margin-right: 10px;
+    color: #dc3545; /* Color azul para editar */
+    transition: color 0.3s ease;
+}
+
+/* proveedores.css or your main stylesheet */
+
+/* Asegúrate de que estas clases estén en tu archivo CSS */
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: bold; /* Para que el mensaje se destaque */
+    text-align: center;
+    /* Añade una transición para un efecto más suave al aparecer/desaparecer */
+    transition: opacity 0.3s ease-in-out, display 0.3s ease-in-out;
+}
+
+    .alert.visible {
+        display: block; /* Muestra el elemento */
+        opacity: 1; /* Asegura que no sea transparente */
+    }
+
+    .alert.hidden {
+        display: none; /* Oculta el elemento, no ocupa espacio */
+        opacity: 0; /* Lo hace transparente si display:none no funciona inmediatamente */
+    }
+
+/* Colores para los tipos de alertas */
+/* Styling for generic alert messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px; /* Espacio debajo del mensaje */
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    /* Transición suave para aparecer/desaparecer */
+    transition: opacity 0.4s ease-in-out, height 0.4s ease-in-out, padding 0.4s ease-in-out, margin 0.4s ease-in-out;
+    overflow: hidden; /* Oculta el contenido desbordado durante la transición de altura */
+}
+
+    /* Clase para hacer el alert visible */
+    .alert.visible {
+        display: block; /* ¡¡¡Esto es crucial: asegura que el elemento sea visible y ocupe espacio!!! */
+        opacity: 1; /* Completamente opaco */
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        padding: 15px; /* Aplica el padding */
+        margin-bottom: 20px; /* Aplica el margen */
+    }
+
+    /* Clase para ocultar el alert */
+    .alert.hidden {
+        display: none; /* ¡¡¡Esto es crucial: oculta el elemento completamente, lo remueve del flujo del documento!!! */
+        opacity: 0; /* Lo hace invisible durante la transición (aunque display:none lo oculta al instante) */
+        height: 0; /* Colapsa la altura durante la transición */
+        padding: 0; /* Elimina el padding */
+        margin-bottom: 0; /* Elimina el margen */
+    }
+
+/* Colores específicos para los tipos de alertas */
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}

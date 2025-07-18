@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Páginas ASPX -->
+    <Content Include="dashboard.aspx" />
+    <Content Include="que_buscas.aspx" />
+    <Content Include="mision_vision.aspx" />
+    <Content Include="quienes_somos.aspx" />
+
+    <!-- Hojas de estilo CSS -->
+    <Content Include="estilos\dashboard.css" />
+    <Content Include="estilos\que_buscas.css" />
+    <Content Include="estilos\mision_vision.css" />
+    <Content Include="estilos\quienes_somos.css" />
+
+    <!-- Imágenes -->
+    <Content Include="imagenes\Logo JE.jpg" />
+
+    <!-- Archivos de login (si los tienes) -->
+    <Content Include="login_nuevacontra\login.aspx" />
+    <Content Include="login_nuevacontra\registro.aspx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- CodeBehind C# -->
+    <Compile Include="dashboard.aspx.cs" />
+    <Compile Include="que_buscas.aspx.cs" />
+    <Compile Include="mision_vision.aspx.cs" />
+    <Compile Include="quienes_somos.aspx.cs" />
+
+    <!-- CodeBehind de login (si existen) -->
+    <Compile Include="login_nuevacontra\login.aspx.cs" />
+    <Compile Include="login_nuevacontra\registro.aspx.cs" />
+  </ItemGroup>
+
+</Project>

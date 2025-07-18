@@ -1,0 +1,223 @@
+﻿/* Page Specific Styles for Productos */
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+    .header-section h1 {
+        font-size: 28px; /* Tamaño del título principal */
+        color: #222;
+        font-weight: bold;
+    }
+
+    .header-section .actions {
+        display: flex;
+        gap: 15px; /* Espacio entre los botones y el input de búsqueda */
+        align-items: center; /* Centra verticalmente los elementos */
+    }
+
+.btn {
+    padding: 10px 18px; /* Ajuste el padding para un mejor aspecto */
+    border: none;
+    border-radius: 4px; /* Bordes más cuadrados para los botones de acción */
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600; /* Texto más negrita para los botones */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.search-input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+    .search-input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Un suave brillo al enfocar */
+    }
+
+.table-container {
+    background: white;
+    padding: 30px; /* Más padding para la tabla */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .data-table th, .data-table td {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .data-table th {
+        background-color: #333; /* Fondo oscuro para los encabezados */
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600; /* Más negrita */
+        font-size: 14px;
+    }
+
+    .data-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    /* Styles for action buttons within the table */
+    .data-table .action-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px; /* Tamaño del ícono */
+        margin-right: 10px;
+        transition: color 0.3s ease;
+    }
+
+        .data-table .action-btn.edit-btn {
+            color: #007bff; /* Color azul para editar */
+        }
+
+            .data-table .action-btn.edit-btn:hover {
+                color: #0056b3;
+            }
+
+        .data-table .action-btn.delete-btn {
+            color: #dc3545; /* Color rojo para eliminar */
+        }
+
+            .data-table .action-btn.delete-btn:hover {
+                color: #a71d2a; /* Rojo más oscuro al pasar el ratón */
+            }
+
+
+/* Add this to your CSS file (e.g., proveedores.css or productos.css if specific) */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden; /* To keep the button inside the rounded border */
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    border: none;
+    padding: 8px 12px;
+    flex-grow: 1; /* Allows the input to take up available space */
+    outline: none; /* Removes the focus outline */
+}
+
+.search-button {
+    background-color: #007bff; /* A nice blue color */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .search-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .search-button i {
+        margin: 0; /* Remove any default margin from the icon */
+        font-size: 18px; /* Cambia el tamaño de la lupa */
+        color: #fff; /* Color del ícono, cambiado a blanco para contraste */
+    }
+
+/* Message Label styles (for success/error messages) */
+.message-label {
+    display: block; /* Ocupa su propia línea */
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+    .message-label.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .message-label.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .message-label.info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+    }
+
+/* Media Queries for Page Specifics (Productos) */
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column; /* Apila el título y las acciones */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+        .header-section .actions {
+            width: 100%;
+            flex-direction: column; /* Apila los botones y la búsqueda */
+            gap: 10px;
+        }
+
+    .search-input {
+        width: 100%; /* La barra de búsqueda ocupa todo el ancho */
+    }
+
+    .search-container {
+        width: 100%; /* El contenedor de búsqueda también ocupa todo el ancho */
+    }
+
+    .btn {
+        width: 100%; /* Los botones ocupan todo el ancho */
+        justify-content: center; /* Centra el texto del botón */
+    }
+
+    .table-container {
+        padding: 15px;
+    }
+
+    .data-table th, .data-table td {
+        padding: 12px;
+        font-size: 13px;
+    }
+}

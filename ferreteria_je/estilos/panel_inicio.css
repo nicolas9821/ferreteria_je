@@ -1,0 +1,375 @@
+﻿/* Estilos generales del dashboard */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0; /* Aseguramos que no haya márgenes por defecto en el body */
+    
+}
+
+/* Título principal del Panel de Administración */
+h1 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    text-align: left; /* Alineamos el título principal a la izquierda */
+}
+
+.dashboard-grid {
+    display: grid;
+    /* Las tarjetas de abajo pueden ser más grandes si quieres, pero los KPIs son el foco */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .dashboard-card h2 {
+        margin-top: 0;
+        color: #2c3e50;
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 12px;
+    }
+
+/* Estilos para los KPIs (los "botones" de la parte superior) */
+.kpi-container {
+    display: grid;
+    /* Ajuste clave: Un minmax más generoso para evitar truncamiento, pero sin ser excesivo. */
+    /* Considera 4 columnas por fila en pantallas grandes, que se adapten a 2 o 1. */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Aumentamos minmax para más ancho */
+    gap: 20px; /* Un espacio moderado entre KPIs */
+    margin-top: 25px;
+     /* Ya tenemos padding en el body, evitamos doble padding aquí */
+}
+
+.kpi-card {
+    /* IMPORTANTE: No definir background genérico aquí si cada clase específica tiene uno. */
+    /* background: linear-gradient(135deg, #4CAF50 0%, #689F38 100%); <-- ELIMINAR O COMENTAR ESTO */
+    padding: 25px 20px; /* Más padding vertical, un poco menos horizontal para contenido */
+    border-radius: 15px; /* Bordes un poco más redondeados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada pero suave */
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*/hola*/ min-width: 180px;
+    align-items: center;
+    min-height: 90px; /* Aumentamos la altura mínima para acomodar el texto sin problemas */
+    position: relative;
+    overflow: hidden; /* Asegura que el contenido extra no se salga si hay overflow */
+}
+
+    .kpi-card::before {
+        content: attr(data-icon); /* Asume que el icono se pasa vía data-icon */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 7em; /* Icono más grande y visible como fondo */
+        color: rgba(255, 255, 255, 0.1); /* Color suave para que no compita con el texto */
+        z-index: 0; /* Aseguramos que esté detrás del texto */
+    }
+
+    .kpi-card:hover {
+        transform: translateY(-10px); /* Efecto hover más pronunciado */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Sombra de hover más grande */
+        /* No necesitamos background en hover aquí, cada clase específica ya lo tiene */
+    }
+
+    .kpi-card h3 {
+        margin-top: 0;
+        font-size: 1em; /* Tamaño del título ligeramente más grande para mejor lectura */
+        color: #ffffff; /* Color de texto predeterminado para h3 */
+        margin-bottom: 5px; /* Más espacio entre título y número */
+        font-weight: 700;
+        position: relative;
+        z-index: 1; /* Asegura que el texto esté sobre el icono */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Sombra para el texto */
+        line-height: 1.2; /* Espaciado de línea para títulos de dos líneas */
+    }
+
+    .kpi-card p {
+        font-size: 0.8em; /* Tamaño del número principal (KPI) */
+        font-weight: bold;
+        margin-bottom: 0;
+        color: #ffffff; /* Color de texto predeterminado para p */
+        position: relative;
+        z-index: 1; /* Asegura que el texto esté sobre el icono */
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* Sombra más fuerte para el número */
+    }
+
+    /* Diferentes colores y hovers para cada tarjeta de KPI */
+    /* NOTA IMPORTANTE: Asegúrate de que estas clases se apliquen en tu HTML */
+    /* Por ejemplo: <div class="kpi-card ventas-hoy" data-icon="&#xf155;">...</div> */
+
+    .kpi-card.ventas-hoy {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    }
+
+        .kpi-card.ventas-hoy:hover {
+            background: linear-gradient(135deg, #0069d9 0%, #004085 100%);
+        }
+
+        .kpi-card.ventas-hoy::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+    /* Icono un poco más visible */
+
+    .kpi-card.productos-stock {
+        background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    }
+
+        .kpi-card.productos-stock:hover {
+            background: linear-gradient(135deg, #e0a800 0%, #c69500 100%);
+        }
+
+        .kpi-card.productos-stock h3, .kpi-card.productos-stock p {
+            color: #333;
+            text-shadow: none;
+        }
+        /* Texto oscuro para contraste */
+        .kpi-card.productos-stock::before {
+            color: rgba(0, 0, 0, 0.1);
+        }
+    /* Icono oscuro para contraste */
+
+
+    .kpi-card.ventas-mes {
+        background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    }
+
+        .kpi-card.ventas-mes:hover {
+            background: linear-gradient(135deg, #218838 0%, #145b23 100%);
+        }
+
+        .kpi-card.ventas-mes::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+    .kpi-card.clientes {
+        background: linear-gradient(135deg, #6f42c1 0%, #563d7c 100%);
+    }
+
+        .kpi-card.clientes:hover {
+            background: linear-gradient(135deg, #5a32a6 0%, #462c6b 100%);
+        }
+
+        .kpi-card.clientes::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+    .kpi-card.compras {
+        background: linear-gradient(135deg, #fd7e14 0%, #cb6710 100%);
+    }
+
+        .kpi-card.compras:hover {
+            background: linear-gradient(135deg, #e67010 0%, #b35a0e 100%);
+        }
+
+        .kpi-card.compras::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+    .kpi-card.total-productos {
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    }
+
+        .kpi-card.total-productos:hover {
+            background: linear-gradient(135deg, #148ea1 0%, #106c7d 100%);
+        }
+
+        .kpi-card.total-productos::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+    .kpi-card.proveedores {
+        background: linear-gradient(135deg, #dc3545 0%, #b82c3c 100%);
+    }
+
+        .kpi-card.proveedores:hover {
+            background: linear-gradient(135deg, #c82333 0%, #a1202e 100%);
+        }
+
+        .kpi-card.proveedores::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+    .kpi-card.usuarios {
+        background: linear-gradient(135deg, #6c757d 0%, #545b62 100%);
+    }
+
+        .kpi-card.usuarios:hover {
+            background: linear-gradient(135deg, #5a6268 0%, #474c50 100%);
+        }
+
+        .kpi-card.usuarios::before {
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+
+/* Estilos para las listas (Últimos Pedidos, Notificaciones Generales) */
+.latest-orders-list, .notifications-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .latest-orders-list li, .notifications-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.98em;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+        .latest-orders-list li:last-child, .notifications-list li:last-child {
+            border-bottom: none;
+        }
+
+        .latest-orders-list li strong {
+            color: #333;
+        }
+
+        .notifications-list li i {
+            color: #007bff;
+            font-size: 1.1em;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+.notification-item.unread {
+    background-color: #fffde7;
+    border-left: 4px solid #ffc107;
+    font-weight: 600;
+}
+
+.notification-item.read {
+    opacity: 0.8;
+}
+
+/* Estilos para el GridView de Stock Bajo */
+.low-stock-gridview {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .low-stock-gridview th {
+        background-color: #f8f8f8;
+        color: #333;
+        font-weight: 700;
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 2px solid #e0e0e0;
+    }
+
+    .low-stock-gridview td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #555;
+    }
+
+    .low-stock-gridview tr:nth-child(even) {
+        background-color: #fcfcfc;
+    }
+
+    .low-stock-gridview tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .low-stock-gridview .low-stock-item {
+        color: #d32f2f;
+        font-weight: bold;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Tabletas y dispositivos más pequeños */
+    .kpi-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 columnas en tablet */
+        gap: 15px;
+    }
+
+    .kpi-card {
+        min-height: 120px;
+        padding: 20px 15px;
+    }
+
+        .kpi-card h3 {
+            font-size: 1em;
+        }
+
+        .kpi-card p {
+            font-size: 2.2em;
+        }
+
+        .kpi-card::before {
+            font-size: 6em;
+        }
+}
+
+@media (max-width: 768px) { /* Dispositivos móviles */
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .kpi-container {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        gap: 15px;
+    }
+
+    .kpi-card {
+        min-height: 100px;
+        padding: 18px 15px;
+        border-radius: 10px;
+    }
+
+        .kpi-card h3 {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        .kpi-card p {
+            font-size: 1.8em;
+        }
+
+        .kpi-card::before {
+            font-size: 5em;
+        }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+
+        .dashboard-card h2 {
+            font-size: 1.4em;
+        }
+}

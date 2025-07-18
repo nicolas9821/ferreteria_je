@@ -1,0 +1,247 @@
+﻿/* Estilos Específicos para la página de login.aspx */
+/* Modificación del body para el fondo de imagen */
+body.login-page {
+    margin: 0;
+    font-family: 'Forum', 'Poppins', sans-serif;
+    background-image: url('../imagenes/Fondo-Login.jpg'); /* Asegúrate de que esta imagen exista en la ruta correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    background: #1f1e1e; /* Color de fondo del contenedor principal del login */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.left-container {
+    background: #032b5f;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+    .left-container img.logo {
+        width: 400px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .left-container .description {
+        font-size: 16px;
+        color: #fff;
+        max-width: 220px;
+        line-height: 1.6;
+    }
+
+.right {
+    width: 50%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Ajuste para que los inputs de email, text y password tengan el mismo padding y ancho */
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box; /* Asegura box-sizing para estos inputs */
+}
+
+/* ------------------------------------------------------------- */
+/* ---------- SECCIÓN CRÍTICA PARA LA CONTRASEÑA ------------- */
+/* ------------------------------------------------------------- */
+.password-input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 0; /* Asegura que el contenedor no agregue padding extra */
+}
+
+    .password-input-wrapper input {
+        padding: 10px !important; /* Mantener padding general */
+        padding-right: 45px !important; /* Asegura que este padding-right se aplica siempre */
+        width: 100% !important; /* Asegura que el ancho sea 100% */
+        box-sizing: border-box !important; /* ¡FUNDAMENTAL! Asegura que el padding se incluye en el ancho */
+        border: 1px solid #ccc !important; /* Asegura el borde */
+        border-radius: 6px !important; /* Asegura el border-radius */
+        background-color: #fff !important; /* Asegura el color de fondo */
+        color: #333 !important; /* Asegura el color del texto */
+    }
+
+/* ------------------------------------------------------------- */
+/* ------------------------------------------------------------- */
+
+input::placeholder {
+    color: #aaa;
+}
+
+/* El botón ASP.NET (asp:Button) se renderiza como <input type="submit"> por defecto */
+/* Por lo tanto, el selector CSS debe ser para input[type="submit"] o una clase específica como .btn */
+/* Como tienes CssClass="btn" en tu botón ASP.NET, usaremos esa clase */
+.btn { /* Usar la clase CSS que ya tienes en el control ASP.NET */
+    padding: 12px;
+    background-color: #007bff; /* Color azul */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: auto; /* Ajuste el ancho para que no ocupe 100% por defecto si no es necesario */
+    align-self: center; /* Centrar el botón si el form es flex-column */
+    margin-top: 15px; /* Espacio superior para el botón */
+}
+
+    .btn:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+    }
+
+    .btn:hover:not(:disabled) {
+        background-color: #0056b3;
+    }
+
+.message {
+    font-size: 0.9em;
+    color: #d9534f;
+    margin-top: 10px;
+    display: none;
+}
+
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+    .links a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+/* Estilos para el icono de mostrar/ocultar */
+.password-input-wrapper .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+    user-select: none;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Estilo específico para el texto "No tienes cuenta aún?" */
+.links .no-account-text {
+    color: #000;
+    font-weight: normal;
+}
+
+/* Media queries para login.aspx */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .left-container,
+    .right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .left-container {
+        padding-bottom: 0;
+    }
+
+        .left-container img.logo {
+            width: 250px;
+            margin-bottom: 15px;
+        }
+
+        .left-container .description {
+            font-size: 14px;
+            max-width: 80%;
+        }
+
+    .right {
+        padding-top: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .right {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Aseguramos que el input de email y el input de contraseña mantengan sus tamaños */
+    input[type="email"],
+    .password-input-wrapper input { /* Aplicamos las reglas a ambos */
+        padding: 8px !important; /* Usamos !important por si hay conflicto con la regla general */
+        margin-bottom: 15px;
+    }
+
+    .btn { /* Usamos .btn en lugar de 'button' para el control ASP.NET */
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .links {
+        font-size: 13px;
+    }
+}

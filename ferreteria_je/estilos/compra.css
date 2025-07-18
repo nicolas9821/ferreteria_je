@@ -1,0 +1,144 @@
+﻿/* Page Specific Styles for Compras */
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+    .header-section h1 {
+        font-size: 28px; /* Tamaño del título principal */
+        color: #222;
+        font-weight: bold;
+    }
+
+    .header-section .actions {
+        display: flex;
+        gap: 15px; /* Espacio entre los botones y el input de búsqueda */
+        align-items: center; /* Centra verticalmente los elementos */
+    }
+
+.btn {
+    padding: 10px 18px; /* Ajuste el padding para un mejor aspecto */
+    border: none;
+    border-radius: 4px; /* Bordes más cuadrados para los botones de acción */
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600; /* Texto más negrita para los botones */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.search-input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+    .search-input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Un suave brillo al enfocar */
+    }
+
+.table-container {
+    background: white;
+    padding: 30px; /* Más padding para la tabla */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .data-table th, .data-table td {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .data-table th {
+        background-color: #333; /* Fondo oscuro para los encabezados */
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600; /* Más negrita */
+        font-size: 14px;
+    }
+
+    .data-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .data-table .actions-cell .action-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px; /* Tamaño del ícono */
+        margin-right: 10px;
+        color: #007bff; /* Color azul para editar */
+        transition: color 0.3s ease;
+    }
+
+        .data-table .actions-cell .action-btn:hover {
+            color: #0056b3;
+        }
+
+        .data-table .actions-cell .action-btn.delete-btn {
+            color: #dc3545; /* Color rojo para eliminar */
+        }
+
+            .data-table .actions-cell .action-btn.delete-btn:hover {
+                color: #bd2c40;
+            }
+
+/* Media Queries for Page Specifics (Compras) */
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column; /* Apila el título y las acciones */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+        .header-section .actions {
+            width: 100%;
+            flex-direction: column; /* Apila los botones y la búsqueda */
+            gap: 10px;
+        }
+
+    .search-input {
+        width: 100%; /* La barra de búsqueda ocupa todo el ancho */
+    }
+
+    .btn {
+        width: 100%; /* Los botones ocupan todo el ancho */
+        justify-content: center; /* Centra el texto del botón */
+    }
+
+    .table-container {
+        padding: 15px;
+    }
+
+    .data-table th, .data-table td {
+        padding: 12px;
+        font-size: 13px;
+    }
+}

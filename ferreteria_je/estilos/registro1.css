@@ -1,0 +1,220 @@
+﻿body {
+    margin: 0;
+    font-family: 'Forum', 'Poppins', sans-serif;
+    background-image: url('../imagenes/Fondo-Login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    background: #1f1e1e; /* Color de fondo del contenedor principal del login */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.left {
+    background: #032b5f;
+    width: 50%;
+    position: relative;
+}
+
+.right {
+    width: 50%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+    /* --- IMPORTANT CSS CHANGES START HERE --- */
+
+    /* Reduced spacing between labels and fields */
+    form label { /* Added 'form' for slightly higher specificity */
+        margin-bottom: 5px; /* Reduced from 8px for tighter spacing */
+        color: #555;
+        display: block; /* Ensures label takes its own line for proper spacing control */
+    }
+
+    /* Apply consistent styling to input fields AND the dropdown list */
+    /* Both input (for textboxes) and select (for dropdown) will get these styles */
+    form input.input,
+    form select.input {
+        padding: 10px;
+        margin-bottom: 15px; /* Reduced from 20px for tighter spacing after the input/select */
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #333;
+        width: 100%; /* Ensures full width */
+        box-sizing: border-box; /* Includes padding and border in total width */
+        /* Custom styling for dropdowns to make them look like text inputs */
+        -webkit-appearance: none; /* Removes default browser styling for dropdowns */
+        -moz-appearance: none;
+        appearance: none;
+        /* Custom SVG for a dropdown arrow, matching the input field's aesthetic */
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M208.5%2080.5c-4.2-4.2-11-4.2-15.2%200L128%20145.8%2062.7%2080.5c-4.2-4.2-11-4.2-15.2%200s-4.2%2011%200%2015.2l70.7%2070.7c4.2%204.2%2011%204.2%2015.2%200l70.7-70.7c4.2-4.2%204.2-11%200-15.2z%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 10px center; /* Position the arrow */
+        background-size: 12px; /* Size of the arrow */
+        padding-right: 30px; /* Make space for the custom arrow to prevent text overlap */
+    }
+
+    /* Ensure placeholder color is consistent */
+    form input::placeholder {
+        color: #aaa;
+    }
+
+    /* Ensure the button styling also has some specificity */
+    form button.button {
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+        form button.button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+
+        form button.button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+
+/* --- IMPORTANT CSS CHANGES END HERE --- */
+
+.message {
+    font-size: 0.9em;
+    color: #d9534f;
+    margin-top: 10px;
+    display: none;
+}
+
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+    .links a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+/* Adjustments for the left container */
+.left-container {
+    background: #032b5f;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+}
+
+    /* Logo: size and margins */
+    .left-container img.logo {
+        width: 400px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    /* Description below the logo */
+    .left-container .description {
+        font-size: 16px;
+        color: #fff;
+        max-width: 220px;
+        line-height: 1.6;
+    }
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .left-container,
+    .right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .left-container {
+        padding-bottom: 0;
+    }
+
+        .left-container img.logo {
+            width: 250px;
+            margin-bottom: 15px;
+        }
+
+        .left-container .description {
+            font-size: 14px;
+            max-width: 80%;
+        }
+
+    .right {
+        padding-top: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .right {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Adjustments for smaller screens */
+    form input.input,
+    form select.input {
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+
+    form button.button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .links {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,217 @@
+﻿body {
+    margin: 0;
+    font-family: 'Forum', 'Poppins', sans-serif;
+    background-image: url('../imagenes/Fondo-Login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    background: #1f1e1e; /* Color de fondo del contenedor principal del login */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.left {
+    background: #032b5f;
+    width: 50%;
+    position: relative;
+    /* La propiedad margin-bottom: 20px; en .left original no tiene mucho sentido aquí,
+     ya que el left-container ya lo está manejando. Lo he quitado.*/
+}
+
+/* Las clases .logo-container y .logo-container img que tenías en el CSS original
+   parecen ser un remanente y no se usan en el HTML que me diste ahora (usa .left-container img.logo).
+   Si no las usas, es mejor eliminarlas para limpiar el CSS.
+   Las he mantenido comentadas por si acaso, pero te recomiendo eliminarlas si no son necesarias. */
+/*
+.logo-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.logo-container img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 50%;
+}
+*/
+
+.right {
+    width: 50%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+    input::placeholder {
+        color: #aaa;
+    }
+
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+    button:disabled {
+        background-color: #999;
+        cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+        background-color: #0056b3;
+    }
+
+.message {
+    font-size: 0.9em;
+    color: #d9534f;
+    margin-top: 10px;
+    display: none;
+}
+
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+    .links a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+/* Ajuste del contenedor izquierdo */
+.left-container {
+    background: #032b5f;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+}
+
+    /* Logo: tamaño y márgenes */
+    .left-container img.logo {
+        width: 400px; /* Ajusta el tamaño según lo necesites */
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    /* Descripción debajo del logo */
+    .left-container .description {
+        font-size: 16px;
+        color: #fff;
+        max-width: 220px;
+        line-height: 1.6;
+    }
+
+/* Media Queries para un diseño responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .left-container,
+    .right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .left-container {
+        padding-bottom: 0;
+    }
+
+        .left-container img.logo {
+            width: 250px;
+            margin-bottom: 15px;
+        }
+
+        .left-container .description {
+            font-size: 14px;
+            max-width: 80%;
+        }
+
+    .right {
+        padding-top: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .right {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .links {
+        font-size: 13px;
+    }
+}

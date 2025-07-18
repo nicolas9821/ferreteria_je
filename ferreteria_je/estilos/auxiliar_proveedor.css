@@ -1,0 +1,181 @@
+﻿/* Page Specific Styles for Cajero Ventas */
+
+/* Header Section (Title and Actions) */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    /* --- MODIFICACIÓN CLAVE AQUÍ --- */
+    flex-wrap: nowrap; /* Asegura que los elementos (título y acciones) no se envuelvan */
+    /* --- FIN MODIFICACIÓN CLAVE --- */
+    gap: 15px; /* Este gap es entre el h1 y el div de acciones, si se envuelven (lo cual queremos evitar en desktop) */
+}
+
+    .header-section h1 {
+        font-size: 28px;
+        color: #222;
+        font-weight: bold;
+        /* Puedes añadir flex-shrink: 0; al h1 para que no se encoja si el espacio es muy justo */
+        /* flex-shrink: 0; */
+    }
+
+    .header-section .actions {
+        display: flex;
+        gap: 15px; /* Espacio entre los elementos de acción (botón, input de búsqueda, botón, botón) */
+        align-items: center;
+        flex-wrap: nowrap; /* Asegura que los botones y el input de búsqueda no se envuelvan dentro de este contenedor */
+        min-width: 0; /* Permite que el contenedor de acciones se encoja si es necesario */
+    }
+
+/* General Button Styles (btn) */
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; /* This is correct for horizontal icon + text */
+    align-items: center; /* Vertically centers icon and text */
+    gap: 8px; /* Space between icon and text */
+    transition: all 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap; /* Prevents text inside the button from wrapping */
+    flex-shrink: 0; /* Prevents buttons from shrinking smaller than their content */
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-excel {
+    background-color: #007bff; /* Color de .btn-primary */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-excel:hover {
+        background-color: #0056b3; /* Color hover de .btn-primary */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+/* Search Input */
+.search-input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 280px; /* Adjusted width - this can be problematic in narrow views */
+    flex-grow: 1; /* Allow the search input to grow and shrink */
+    flex-shrink: 1; /* Allow the search input to shrink if needed */
+    max-width: 100%; /* Ensure it doesn't overflow */
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+    .search-input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+
+/* Table Styles - (No changes here, just for context) */
+.table-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    border: 1px solid #e0e0e0;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+}
+
+    .data-table th, .data-table td {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .data-table th {
+        background-color: #333; /* Darker background for headers */
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .data-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .data-table .actions-cell {
+        white-space: nowrap; /* Prevents action buttons from wrapping */
+    }
+
+        .data-table .actions-cell .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-right: 10px;
+            color: #007bff;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+            .data-table .actions-cell .action-btn:hover {
+                color: #0056b3;
+                transform: scale(1.1);
+            }
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .header-section {
+        flex-direction: column; /* Stack header elements */
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+        .header-section .actions {
+            flex-direction: column; /* Stack action buttons vertically */
+            width: 100%; /* Make them full width */
+            gap: 10px;
+            flex-wrap: wrap; /* Allow buttons to wrap if individual width exceeds container */
+        }
+
+    .btn, .search-input {
+        width: 100%; /* Make buttons and search input full width in mobile */
+        max-width: none; /* Override any max-width */
+    }
+
+    .table-container {
+        padding: 20px 15px;
+    }
+
+    .data-table th, .data-table td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .data-table .actions-cell .action-btn {
+        font-size: 16px;
+        margin-right: 5px;
+    }
+}
+
+/* Scroll adjustments - (No changes here, just for context) */
+.main-content {
+    padding: 30px;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}

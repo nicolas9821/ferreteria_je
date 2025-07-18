@@ -1,0 +1,264 @@
+﻿/* estilos/reportes.css */
+
+/* --- Estilos para el Topbar y Menú de Usuario (Mantengo la estructura, aunque muchos ya estén en inicio.css) --- */
+.topbar {
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative; /* Necesario para posicionar elementos hijos como user-menu */
+    z-index: 10;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Estos estilos ya están en inicio.css y son efectivos para posicionar el user-menu dentro del topbar.
+       No es necesario position: absolute; right: 30px; aquí si el topbar ya maneja el flex-end.
+       Si necesitas que estén siempre en la esquina de la ventana, independientemente del topbar,
+       entonces el absolute sería necesario, pero es menos flexible.
+       Asumo que quieres que fluyan dentro del topbar, que es lo que hacen los botones de "Gestión de Compras". */
+}
+
+.logout-btn, .user-name {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+    .logout-btn:hover {
+        background-color: #c82333;
+        transform: translateY(-1px);
+    }
+
+.user-name {
+    background-color: #28a745;
+    color: white;
+}
+
+    .user-name:hover {
+        background-color: #218838;
+        transform: translateY(-1px);
+    }
+
+    .logout-btn i, .user-name i {
+        margin-right: 8px;
+        font-size: 1.1em;
+    }
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    min-width: 220px;
+    display: none;
+    padding: 15px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+    .dropdown div {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .dropdown div:last-child {
+            border-bottom: none;
+        }
+
+    .dropdown a {
+        color: #007bff;
+        text-decoration: none;
+        display: block;
+        padding: 5px 0;
+    }
+
+        .dropdown a:hover {
+            text-decoration: underline;
+        }
+
+/* --- Estilos para el Contenido Principal y Centrado --- */
+
+/* Ajustes del main-content (el área grande a la derecha de la barra lateral) */
+/* No lo estás modificando en inicio.css, así que lo sobreescribimos aquí para reportes. */
+.main-content {
+    flex-grow: 1; /* Permite que ocupe todo el ancho restante */
+    display: flex;
+    flex-direction: column; /* Apila verticalmente el topbar y el contenido de reportes */
+    /* REMOVIDO: align-items: center; y justify-content: center; de main-content
+       porque queremos que el topbar esté arriba y solo el contenido de reporte se centre. */
+    padding: 0; /* Asegúrate de que no haya padding extra que pueda afectar el layout */
+    height: 100%; /* ¡CLAVE! Asegura que main-content ocupe toda la altura del .dashboard */
+    box-sizing: border-box;
+}
+
+/* El formulario debe ocupar todo el espacio para que su contenido interno se posicione correctamente. */
+#form1 {
+    width: 100%;
+    height: 100%; /* ¡CLAVE! El formulario debe ocupar toda la altura de su padre (.main-content) */
+    display: flex;
+    flex-direction: column; /* Organiza sus hijos (topbar y report-content-centered) verticalmente */
+    align-items: center; /* Centra horizontalmente el topbar y el report-content-centered */
+    justify-content: flex-start; /* Alinea el topbar al inicio y permite que report-content-centered crezca */
+}
+
+/* Contenedor del título y botones de reporte */
+.report-content-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente el título y los botones */
+    justify-content: center; /* ¡CLAVE! Centra verticalmente este contenido DENTRO de su espacio asignado */
+    width: 100%;
+    /* No se necesita padding aquí, el main-content o form ya pueden proveerlo si es necesario */
+    box-sizing: border-box;
+    flex-grow: 1; /* ¡CLAVE! Este contenedor crecerá para ocupar todo el espacio vertical restante después del topbar */
+}
+
+    .report-content-centered h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+        font-size: 2.2em;
+        font-weight: 700;
+    }
+
+/* Contenedor de los botones de reporte (Compras y Ventas) */
+.report-buttons-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilo para los botones individuales de reporte */
+.report-button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+    .report-button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+    }
+
+    .report-button i {
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+
+/* --- Media Queries (Ajustes Responsivos) --- */
+/* Mantengo tus media queries existentes, ya que gestionan la responsividad correctamente. */
+
+@media (max-width: 768px) {
+    /* Aquí podrías necesitar ajustar el topbar si quieres que se vea diferente en móvil,
+       pero si ya está gestionado en inicio.css, estas reglas podrían ser redundantes. */
+    .topbar {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .user-menu {
+        position: static;
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .report-content-centered {
+        padding: 15px;
+    }
+
+        .report-content-centered h1 {
+            text-align: center;
+            margin-bottom: 30px; /* Espacio debajo del título */
+            color: #333;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-top: -500000px; /* ¡Ajusta este valor! Por ejemplo, -50px, -80px, etc.
+                         Esto moverá el h1 y, por ende, el resto del contenido, hacia arriba. */
+        }
+
+    .report-buttons-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Estilo para los botones individuales de reporte */
+    .report-button {
+        background-color: #0056b3; /* ¡CAMBIADO! Color azul oscuro como color base */
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    }
+
+        .report-button:hover {
+            background-color: #007bff; /* ¡CAMBIADO! Ahora el color más claro al pasar el ratón */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+        }
+}
+
+@media (max-width: 480px) {
+    .logout-btn, .user-name {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+        .logout-btn i, .user-name i {
+            font-size: 1em;
+            margin-right: 5px;
+        }
+
+    .dropdown {
+        min-width: 180px;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .report-content-centered h1 {
+        font-size: 1.5em;
+    }
+}
